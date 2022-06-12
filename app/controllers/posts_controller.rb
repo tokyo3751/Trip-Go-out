@@ -17,9 +17,18 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    #コメントを投稿するためのインスタンス変数を定義する
+    @reply = Reply.new
   end
 
   def edit
+  end
+
+  #投稿データの削除
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
   # 投稿データのストロングパラメータ

@@ -5,9 +5,10 @@
   <%= link_to post_path(posts.id) do %>
     <%= image_tag posts.get_image %>
   <% end %>
-  <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p>
+  <p>投稿ユーザー画像：<%= image_tag posts.user.get_profile_image(100,100) %></p>
   <p>ニックネーム：<%= posts.user.nickname %></p>
   <p>場所名：<%= posts.place %></p>
   <p>コメント：<%= posts.comment %></p>
+  <p><%= link_to "#{posts.reply.count} コメント", post_path(posts.id) %></p>
 </div>
 <% end %>

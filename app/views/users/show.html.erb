@@ -1,0 +1,24 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+<div>
+  <h3><%= @user.nickname %></h3>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <% if @user == current_user %>
+  <p><%= link_to "プロフィール編集", edit_user_path %></p>
+  <% end %>
+</div>
+
+<!-- ユーザーの投稿一覧 -->
+
+<% @post.each do |posts| %>
+<div>
+  <%= link_to post_path(posts.id) do %>
+    <%= image_tag posts.get_image(200,200) %>
+  <% end %>
+  <p>投稿ユーザー画像：<%= image_tag posts.user.get_profile_image(100,100) %></p>
+  <p>場所名：<%= posts.place %></p>
+  <p>コメント：<%= posts.comment %></p>
+  <p>ニックネーム：<%= posts.user.nickname %></p>
+  <p><%= link_to "#{posts.reply.count} コメント", post_path(posts.id) %></p>
+</div>
+<% end %>
