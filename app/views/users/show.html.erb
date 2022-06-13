@@ -20,5 +20,6 @@
   <p>コメント：<%= posts.comment %></p>
   <p>ニックネーム：<%= posts.user.nickname %></p>
   <p><%= link_to "#{posts.reply.count} コメント", post_path(posts.id) %></p>
+  <p><%= link_to "いいねした投稿",  favorites_user_path %></p>
 </div>
 <% end %>

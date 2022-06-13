@@ -5,6 +5,12 @@ class Post < ApplicationRecord
   belongs_to :user
   #Post モデルに Reply モデルを関連付ける
   has_many :reply, dependent: :destroy
+  #Post モデルに Favorite モデルを関連付ける
+  has_many :favorites, dependent: :destroy
+  #引数で渡されたユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べるメソッド
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
   #画像を表示させるメソッド
   def get_image(width,height)
     unless image.attached?
