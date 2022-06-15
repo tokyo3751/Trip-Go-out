@@ -3,7 +3,7 @@
 <% @posts.each do |posts| %>
 <div>
   <%= link_to post_path(posts.id) do %>
-    <%= image_tag posts.get_image %>
+    <%= image_tag posts.get_image(200,200) %>
   <% end %>
   <p>投稿ユーザー画像：<%= image_tag posts.user.get_profile_image(100,100) %></p>
   <p>ニックネーム：<%= posts.user.nickname %></p>
