@@ -101,5 +101,5 @@ function codeAddress(){
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap" async defer></script>
-    <%= f.submit '投稿' %>
+    <%= f.submit '投稿', class: "btn btn-primary" %>
   <% end %>

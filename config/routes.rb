@@ -9,11 +9,14 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :replys, only:[:create, :destroy]
   end
-  
+
   resources :users do
+    resources :relationships, only: [:create, :destroy]
     member do
     get :favorites
    end
  end
+
+ get "search" => "searches#search"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

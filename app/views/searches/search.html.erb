@@ -1,0 +1,24 @@
+<h2>Results index</h2>
+
+<table class="table table-hover table-inverse">
+  <!--検索対象モデルがUserの時 -->
+  <% if @range == "User" %>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.nickname, user_path(user.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがPostの時) -->
+    <tbody>
+      <% @posts.each do |posts| %>
+        <tr>
+          <td><%= link_to posts.place, post_path(posts.id) %></td>
+          <td><%= posts.comment %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

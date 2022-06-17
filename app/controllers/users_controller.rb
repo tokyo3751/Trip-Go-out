@@ -2,6 +2,8 @@ class UsersController < ApplicationController
    before_action :set_user, only: [:favorites]
 
   def index
+    @mates = current_user.matchers
+    @users = User.all
   end
 
   def show

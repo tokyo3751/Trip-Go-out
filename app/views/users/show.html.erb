@@ -24,3 +24,26 @@
   <p><%= link_to "いいねした投稿",  favorites_user_path %></p>
 </div>
 <% end %>
+  <% if current_user.matchers?(@user) %>
+
+          <p><%= @user.nickname %> is your mate</p>
+  <% end %>
+
+  <% if current_user.id == @user.id %>
+
+  <% else %>
+    <% unless current_user.following?(@user) %>
+      <div>
+        <%= link_to 'フォローする', user_relationships_path(@user.id), method: :post %>
+      </div>
+    <% else %>
+        <%= link_to 'フォロー解除します', user_relationship_path(@user.id), method: :delete %>
+    <% end %>
+  <% end %>
+
+  <% if current_user.id == @user.id %>
+    <div>
+      <%= link_to 'プロフィールを編集する', edit_user_registration_path %>
+    </div>
+  <% end %>
+</div>
