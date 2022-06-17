@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   has_many :reply, dependent: :destroy
   #Post モデルに Favorite モデルを関連付ける
   has_many :favorites, dependent: :destroy
+  #Post モデルに Evaluation モデルを関連付ける
+  has_many :evaluations, dependent: :destroy
   #引数で渡されたユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べるメソッド
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
@@ -19,5 +21,5 @@ class Post < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
 end

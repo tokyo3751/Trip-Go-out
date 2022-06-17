@@ -19,9 +19,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     #コメントを投稿するためのインスタンス変数を定義する
     @reply = Reply.new
+    gon.post = @post
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   #投稿データの削除
@@ -35,6 +37,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :place, :comment)
+    params.require(:post).permit(:image, :place, :comment, :evaluations, :address, :latitude, :longitude)
   end
 end

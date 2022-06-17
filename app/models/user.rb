@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :replys, dependent: :destroy
   #User モデルに Favorite モデルを関連付ける
   has_many :favorites, dependent: :destroy
+  #User モデルに Evaluations モデルを関連付ける
+  has_many :evaluations, dependent: :destroy
 
   #ActiveStorageを使い画像をアップロードできるようにするメソッド
   def get_profile_image(width, height)
