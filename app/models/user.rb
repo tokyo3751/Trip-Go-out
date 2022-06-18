@@ -76,4 +76,12 @@ class User < ApplicationRecord
     end
   end
 
+  def gender_name
+    if gender == "man"
+      "男性"
+    elsif gender == "woman"
+      "女性"
+    end
+  end
+
 end

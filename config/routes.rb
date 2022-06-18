@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   sessions: 'admins/sessions'
 }
   namespace :admins do
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update, :destroy]
   end
 
   devise_for :users

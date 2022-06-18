@@ -1,1 +1,10 @@
-<h1>テスト</h1>
+<h1>ユーザー一覧</h1>
+ <% @user.each do |user| %>
+  <%= link_to admins_user_path(user.id) do %>
+  <p><%= user.id %></p>
+  <p><%= image_tag user.get_profile_image(100,100) %></p>
+  <P><%= user.nickname %></P>
+  <P><%= user.age %></P>
+  <p><%= user.gender_name %></p>
+  <% end %>
+<% end %>

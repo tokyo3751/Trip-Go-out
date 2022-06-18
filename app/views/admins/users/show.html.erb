@@ -1,0 +1,14 @@
+<h1>ユーザー詳細</h1>
+<h3><%= @user.nickname %></h3>
+<P><%= image_tag @user.get_profile_image(100,100) %></P>
+<%= link_to "退会させる", admins_user_path(@user.id), class: "destroy-user", method: :delete, "data-confirm" => "本当に退会させますか？" %>
+
+<% @post.each do |posts| %>
+ <%= image_tag posts.get_image(200,200) %>
+ <p>投稿ユーザー画像：<%= image_tag posts.user.get_profile_image(100,100) %></p>
+  <p>場所名：<%= posts.place %></p>
+  <p>住所 : <%= posts.address %></p>
+  <p>コメント：<%= posts.comment %></p>
+  <p>ニックネーム：<%= posts.user.nickname %></p>
+  <%= link_to "投稿を削除する", admins_user_path(posts.id), class: "destroy-post", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>
