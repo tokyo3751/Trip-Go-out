@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   get 'homes/top'
   get 'favorites/index'
   root to: "homes#top"
+
+  devise_for :admins, controllers: {
+  sessions: 'admins/sessions'
+}
+  namespace :admins do
+    resources :users, only: [:index, :show, :edit, :update]
+  end
+
   devise_for :users
 
   resources :posts do

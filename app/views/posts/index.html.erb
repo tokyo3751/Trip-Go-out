@@ -9,8 +9,8 @@
   <p>ニックネーム：<%= posts.user.nickname %></p>
   <p>場所名：<%= posts.place %></p>
   <p>住所 : <%= link_to posts.address, post_path(posts.id) %></p>
-    <div class=card>
-    <p>評価 :<%= posts.evaluations %>点</p>
+    <div>
+    <p>評価 :<%= posts.evaluation %>点</p>
     <div id="star-rate<%= posts.id%>"></div>
     <script>
       $('#star-rate<%= posts.id%>').raty({
@@ -20,7 +20,7 @@
         starHalf    : '<%= asset_path('star-half.png') %>',
         half      : true,
         readOnly: true,
-        score: <%= posts.evaluations %>,
+        score: <%= posts.evaluation %>,
       });
     </script>
   </div>

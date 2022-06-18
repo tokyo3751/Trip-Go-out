@@ -13,8 +13,6 @@ class User < ApplicationRecord
   has_many :replys, dependent: :destroy
   #User モデルに Favorite モデルを関連付ける
   has_many :favorites, dependent: :destroy
-  #User モデルに Evaluations モデルを関連付ける
-  has_many :evaluations, dependent: :destroy
 
   # フォローしている側のユーザー (active relationship)
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
