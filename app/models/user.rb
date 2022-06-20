@@ -76,11 +76,20 @@ class User < ApplicationRecord
     end
   end
 
+  #性別を日本語で表記する
   def gender_name
     if gender == "man"
       "男性"
     elsif gender == "woman"
       "女性"
+    end
+  end
+
+  #ゲストユーザーでログインするためのメソッド
+  def self.guest
+    find_or_create_by!(nickname: 'guestuser' ,email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.nickname = "guestuser"
     end
   end
 
