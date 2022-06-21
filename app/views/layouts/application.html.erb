@@ -14,6 +14,7 @@
   <body>
      <%= render "layouts/header" %>
      <main>
+       <p id="notice"><%= notice %></p>
      <% if user_signed_in? %>
       <h4 class="mt-5 ml-5">ユーザーや投稿を検索できます</h4>
       <div class="search_form mx-5 mt-2">

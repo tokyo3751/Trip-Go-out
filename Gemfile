@@ -59,6 +59,7 @@ gem 'devise'
 gem "gmaps4rails"
 gem "geocoder"
 gem "gon"
+gem 'kaminari','~> 1.2.1'
 
 gem 'dotenv-rails'
 group :production do

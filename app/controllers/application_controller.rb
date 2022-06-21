@@ -5,10 +5,10 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     def after_sign_in_path_for(resource)
       if current_user
         flash[:notice] = "ログインに成功しました"
-        root_path  #　指定したいパスに変更
+        root_path  
       else
         flash[:notice] = "新規登録が完了しました"
-        user_path  #　指定したいパスに変更
+        user_path
       end
     end
 

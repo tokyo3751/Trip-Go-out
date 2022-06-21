@@ -23,6 +23,11 @@
               <% end %>
             </li>
             <li>
+              <%= link_to users_path ,class: 'nav-link text-light' do %>
+              ユーザー 一覧
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
               ログアウト
               <% end %>
@@ -40,7 +45,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-light' do %>
+              <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
               ログイン
               <% end %>
             </li>
