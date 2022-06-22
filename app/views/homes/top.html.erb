@@ -1,13 +1,32 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
-<h4>
-  Trip & Go outへようこそ！<br>
-  このサイトは、旅行先や外出先を共有するアプリです！<br>
-  皆様の投稿で、色々なスポットを共有しましょう！
-</h4>
-<% if user_signed_in? %>
-<% else %>
-<%= link_to "新規登録", new_user_registration_path %>
-<%= link_to "ログイン", new_user_session_path %>
-<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto mt-5 col-11 col-sm-10 col-lg-8 col-xl-6">
+      <h2>
+        　　~Trip & Go outへようこそ！~<br>
+        このサイトは、旅行先や外出先を共有するアプリです！<br>
+        皆様の投稿で、色々なスポットを共有しましょう！
+      </h2>
+    </div>
+    <div class="btn-wrapper col-10 mx-auto">
+      <% if user_signed_in? %>
+        <div class="row mt-5">
+          <%= link_to "投稿一覧へ", posts_path, class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+        <div class="row mt-5">
+          <%= link_to "新規投稿へ", new_post_path, class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+      <% else %>
+        <div class="row">
+        　<%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary btn-sm btn-block mb-3 sign_in" %>
+        </div>
+        <div class="row">
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary btn-sm btn-block mb-3 sign_in" %>
+        </div>
+        <div class="row">
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-primary btn-sm btn-block mb-3 sign_in", method: :post %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

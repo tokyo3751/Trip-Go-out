@@ -1,26 +1,38 @@
-<h2>ログイン</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+   <h1 class="text-center mt-5">
+    <span class="border-bottom">ログイン</span>
+  </h1>
+  <div class="row mt-5 offset-1">
+    <h5 class="bg-light text-dark text-center">会員の方はこちらからログイン</h5>
   </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="col g-3 needs-validation novalidate">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form_group row mt-3 mb-3">
+          <%= f.label :"メールアドレス", class: "col-md-3" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", autofocus: true, class: 'form-control col-md-6', required: true %>
+          <div class="invalid-feedback row offset-3">
+              メールアドレスを入力してください。
+          </div>
+        </div>
+        <div class="form_group row">
+          <%= f.label :"パスワード", class: "col-3" %>
+          <%= f.password_field :password, autocomplete: "current-password", autofocus: true, class: 'form-control col-md-6', required: true %>
+          <div class="invalid-feedback row offset-3">
+            パスワードを入力してください。
+          </div>
+        </div>
+        <div class="actions">
+          <%= f.submit "ログイン", class: "btn btn-primary text-white mt-5 col-md-3 offset-3" %>
+        </div>
+    <% end %>
   </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="row offset-1 mt-5">
+    <h5 class="bg-light text-dark text-center">会員登録がお済ではない方</h5>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <div class="row offset-2 mt-3">
+    <%= link_to "こちら", new_user_registration_path %>から新規登録を行ってください。
+  </div>
+  <div class="row offset-2 mt-3">
+    もしくは<%= link_to "こちら", users_guest_sign_in_path, method: :post %>からゲストユーザーでログインしてください。
+  </div>
+</div>

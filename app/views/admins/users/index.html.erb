@@ -1,10 +1,25 @@
-<h1>ユーザー一覧</h1>
- <% @user.each do |user| %>
-  <%= link_to admins_user_path(user.id) do %>
-  <p><%= user.id %></p>
-  <p><%= image_tag user.get_profile_image(100,100) %></p>
-  <P><%= user.nickname %></P>
-  <P><%= user.age %></P>
-  <p><%= user.gender_name %></p>
-  <% end %>
-<% end %>
+<div class="container">
+  <h1 class="text-center mt-5">
+    <span class="border-bottom">ユーザー 一覧</span>
+  </h1>
+  <div class="row">
+    <table class="table mt-5">
+      <tr>
+        <th>ユーザーID</th>
+        <th>プロフィール画像</th>
+        <th>ユーザー名</th>
+        <th>年齢層</th>
+        <th>性別</th>
+      </tr>
+      <% @user.each do |user| %>
+         <tr onclick='window.location="<%= admins_user_path(user.id) %>"' role="link">
+           <td><%= user.id %></td>
+           <td><%= image_tag user.get_profile_image(100,100) %></td>
+           <td><%= user.nickname %></td>
+           <td><%= user.age %></td>
+           <td><%= user.gender_name %></td>
+         </tr>
+     <% end %>
+    </table>
+  </div>
+</div>

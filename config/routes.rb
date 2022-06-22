@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 }
   namespace :admins do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :posts, only: [:destroy]
   end
 
   devise_for :users

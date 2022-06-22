@@ -1,14 +1,75 @@
-<h1>ユーザー詳細</h1>
-<h3><%= @user.nickname %></h3>
-<P><%= image_tag @user.get_profile_image(100,100) %></P>
-<%= link_to "退会させる", admins_user_path(@user.id), class: "destroy-user", method: :delete, "data-confirm" => "本当に退会させますか？" %>
+<div class="container">
+  <h1 class="text-center mt-5">
+   <span class="border-bottom">ユーザー詳細</span>
+  </h1>
+   <div class="row">
+     <table class="table mt-5">
+       <tr>
+        <th>ユーザーID</th>
+        <th>プロフィール画像</th>
+        <th>ユーザー名</th>
+        <th>年齢層</th>
+        <th>性別</th>
+        <th>メールアドレス</th>
+       </tr>
+       <tr>
+        <td><%= @user.id %></td>
+        <td><%= image_tag @user.get_profile_image(100,100) %></td>
+        <td><%= @user.nickname %></td>
+        <td><%= @user.age %></td>
+        <td><%= @user.gender_name %></td>
+        <td><%= @user.email %></td>
+       </tr>
+     </table>
+   </div>
+   <div class="text-center mt-5">
+     <%= link_to "退会させる", admins_user_path(@user.id), class: "destroy-user btn btn-danger", method: :delete, "data-confirm" => "本当に退会させますか？" %>
+   </div>
+   <div class="card-list-container py-5">
+     <h1 class="text-center mt-5">
+       <span class="border-bottom">
+         <%= @user.nickname %>さんの投稿一覧
+       </span>
+     </h1>
+     <% @post.each do |posts| %>
+    <div class="card w-50 mx-auto mt-4 shadow-lg">
+        <%= image_tag posts.get_image(300,300), class: "card-img-top" %>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-2">
+           <%= image_tag posts.user.get_profile_image(80,80), class: "mt-3 rounded-circle" %>
+          </div>
+          <div class="col-10">
+            <p class="card-title">投稿者：<%= posts.user.nickname %></p>
+            <p class="card-text">場所名：<%= posts.place %></p>
+            <p class="card-text">住所 : <%= posts.address %></p>
+            <p class="card-text">投稿日 : <%= posts.created_at.strftime('%Y/%m/%d') %></p>
+            <p class="card-text">評価 : <%= posts.evaluation %>点</p>
+            <div id="star-rate<%= posts.id%>"></div>
+            <script>
+              $('#star-rate<%= posts.id%>').raty({
+                size      : 36,
+                starOff   : '<%= asset_path('star-off.png') %>',
+                starOn    : '<%= asset_path('star-on.png') %>',
+                starHalf    : '<%= asset_path('star-half.png') %>',
+                half      : true,
+                readOnly: true,
+                score: <%= posts.evaluation %>,
+              });
+            </script>
+            <p class="card-text">コメント：<%= posts.comment %></p>
+            <p class="card-text"><%= link_to "#{posts.reply.count} コメント", post_path(posts.id) %></p>
+             <%= link_to "投稿を削除する", post_path(@post), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+          </div>
+        </div>
+       </div>
+     </div>
+    <% end %>
+  </div>
+</div>
 
-<% @post.each do |posts| %>
- <%= image_tag posts.get_image(200,200) %>
- <p>投稿ユーザー画像：<%= image_tag posts.user.get_profile_image(100,100) %></p>
-  <p>場所名：<%= posts.place %></p>
-  <p>住所 : <%= posts.address %></p>
-  <p>コメント：<%= posts.comment %></p>
-  <p>ニックネーム：<%= posts.user.nickname %></p>
-  <%= link_to "投稿を削除する", admins_user_path(posts.id), class: "destroy-post", method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<% end %>
+
+
+
+
+

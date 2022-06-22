@@ -1,8 +1,12 @@
 <div class="container">
   <% if @user == current_user %>
-    <h1 class="border-bottom mt-3 text-center">マイページ</h1>
+    <h1 class="mt-5 text-center">
+      <span class="border-bottom">マイページ</span>
+    </h1>
   <% else %>
-    <h1 class="border-bottom mt-3 text-center">ユーザー詳細</h1>
+    <h1 class="text-center mt-5">
+      <span class="border-bottom">ユーザー詳細</span>
+    </h1>
   <% end %>
      <div class="row">
         <table class="table mt-5">
@@ -47,5 +51,6 @@
     <div class="card-list-container py-5">
       <h2 class="text-center mt-5"><%= @user.nickname %>さんの投稿一覧</h2>
        <%= render "posts/index", posts: @post %>
+       <%= paginate @post %>
     </div>
 </div>

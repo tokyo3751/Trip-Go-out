@@ -1,6 +1,7 @@
 <header>
  <nav class="navbar navbar-expand navbar-light bg-info">
    <div class="container">
+     <a class="navbar-brand" href="/"><span><img src="favicon.png"></span></a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
        <span class="navbar-toggler-icon"></span>
      </button>
@@ -33,6 +34,11 @@
               <% end %>
             </li>
           <% elsif admin_signed_in? %>
+            <li>
+              <%= link_to admins_users_path, class: 'nav-link text-light' do %>
+              ユーザー 一覧
+              <% end %>
+            </li>
             <li>
               <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
               ログアウト

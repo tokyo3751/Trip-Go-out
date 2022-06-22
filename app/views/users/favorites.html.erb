@@ -1,10 +1,8 @@
-<h1>テスト</h1>
-<h2>いいね一覧</h2>
-<% @favorite_posts.each do |posts|%>
-<P>投稿画像：<%= image_tag posts.get_image(200,200) %></P>
-<p>場所名：<%= posts.place %></p>
-<p>コメント：<%= posts.comment %></p>
-<p>ニックネーム：<%= posts.user.nickname %></p>
-<p>投稿ユーザー画像：<%= image_tag posts.user.get_profile_image(100,100) %></p>
-<p>投稿日：<%= posts.created_at.strftime('%Y/%m/%d') %></p>
-<% end %>
+<div class="container">
+  <h1 class="text-center mt-5">
+    <span class="border-bottom"><%= @user.nickname %>さんがいいねした投稿</span>
+  </h1>
+   <div class="card-list-container py-5">
+     <%= render "posts/index", posts: @favorite_posts %>
+   </div>
+</div>
