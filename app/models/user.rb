@@ -22,6 +22,10 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
 
+  #バリデーションの設定
+  validates :nickname, presence: true
+  validates :age, presence: true
+
   #ActiveStorageを使い画像をアップロードできるようにするメソッド
   def get_profile_image(width, height)
     unless profile_image.attached?

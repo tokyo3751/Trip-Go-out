@@ -59,7 +59,7 @@
             </script>
             <p class="card-text">コメント：<%= posts.comment %></p>
             <p class="card-text"><%= link_to "#{posts.reply.count} コメント", post_path(posts.id) %></p>
-             <%= link_to "投稿を削除する", post_path(@post), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+             <%= link_to "投稿を削除する", admins_post_path(posts), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
           </div>
         </div>
        </div>

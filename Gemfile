@@ -60,6 +60,7 @@ gem "gmaps4rails"
 gem "geocoder"
 gem "gon"
 gem 'kaminari','~> 1.2.1'
+gem 'rails-i18n'
 
 gem 'dotenv-rails'
 group :production do

@@ -1,0 +1,8 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+     post:
+       place: 場所名
+       comment: コメント

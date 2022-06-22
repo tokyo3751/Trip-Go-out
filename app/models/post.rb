@@ -8,6 +8,10 @@ class Post < ApplicationRecord
   #Post モデルに Favorite モデルを関連付ける
   has_many :favorites, dependent: :destroy
 
+  #バリデーションの設定
+  validates :place, presence: true
+  validates :comment, presence: true
+
   #引数で渡されたユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べるメソッド
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
