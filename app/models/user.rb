@@ -24,7 +24,6 @@ class User < ApplicationRecord
 
   #バリデーションの設定
   validates :nickname, presence: true
-  validates :age, presence: true
 
   #ActiveStorageを使い画像をアップロードできるようにするメソッド
   def get_profile_image(width, height)
