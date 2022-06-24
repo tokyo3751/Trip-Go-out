@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :relationships, only: [:create, :destroy]
+    resources :relationships, only: [:index, :create, :destroy]
     member do
     get :favorites
    end

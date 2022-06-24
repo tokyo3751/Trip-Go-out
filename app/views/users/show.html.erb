@@ -14,7 +14,7 @@
             <td><%= image_tag @user.get_profile_image(100,100), class: "mt-3 rounded-circle" %></td>
             <td>
               <% if current_user.matchers?(@user) %>
-                <p><%= @user.nickname %> is your mate</p>
+                <p><%= @user.nickname %>さんをフォローしています</p>
               <% end %>
               <% if current_user.id == @user.id %>
                 <% else %>
@@ -53,4 +53,9 @@
        <%= render "posts/index", posts: @post %>
        <%= paginate @post %>
     </div>
+    <% if @user == current_user && @user.nickname != "guestuser" %>
+      <div class="text-center mt-4">
+        <%= link_to "退会する", user_path(@user.id), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+      </div>
+    <% end %>
 </div>
