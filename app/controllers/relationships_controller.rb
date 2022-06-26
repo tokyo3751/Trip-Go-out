@@ -1,5 +1,10 @@
 class RelationshipsController < ApplicationController
-  
+  def index
+    user = User.find(params[:user_id])
+    @users = user.followings
+    @user = user.followers
+  end
+
   def create
     Relationship.create(follower_id: current_user.id, followed_id: params[:user_id])
     redirect_to user_path(params[:user_id]), notice: "フォローしました"
