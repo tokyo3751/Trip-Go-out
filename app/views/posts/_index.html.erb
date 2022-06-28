@@ -1,6 +1,6 @@
 <% posts.each do |posts| %>
     <div class="card w-50 mx-auto mt-4 shadow-lg">
-      <%= link_to post_path(posts.id) do %>
+      <%= link_to post_path(posts.id) , data: {"turbolinks" => false} do %>
         <%= image_tag posts.get_image(300,300), class: "card-img-top" %>
       <% end %>
       <div class="card-body">
@@ -11,7 +11,7 @@
           <div class="col-10">
             <p class="card-title">投稿者：<%= link_to posts.user.nickname, user_path(posts.user) %></p>
             <p class="card-text">場所名：<%= posts.place %></p>
-            <p class="card-text">住所 : <%= link_to posts.address, post_path(posts.id) %></p>
+            <p class="card-text">住所 : <%= link_to posts.address, post_path(posts.id), data: {"turbolinks" => false} %></p>
             <p class="card-text">投稿日 : <%= posts.created_at.strftime('%Y/%m/%d') %></p>
             <p class="card-text">評価 : <%= posts.evaluation %>点</p>
             <div id="star-rate<%= posts.id%>"></div>
