@@ -21,9 +21,10 @@
 
 ## 設計書
 ・テーブル定義書    
-(https://docs.google.com/spreadsheets/d/1fIahWIixEj8v6mLCFVVIwwN--7KlJaEFlKkxfZiq5ag/edit#gid=0)  
-・アプリケーション詳細設計  (https://docs.google.com/spreadsheets/d/13VebimwhinxLC6KH_11dM1v2yfDphacALYNw9pdRgak/edit#gid=1866992021)  
-・ER図  (https://github.com/tokyo3751/Trip-Go-out/blob/main/PF%20ER%E5%9B%B3.png)
+       (https://docs.google.com/spreadsheets/d/1fIahWIixEj8v6mLCFVVIwwN--7KlJaEFlKkxfZiq5ag/edit#gid=0)  
+・アプリケーション詳細設計        (https://docs.google.com/spreadsheets/d/13VebimwhinxLC6KH_11dM1v2yfDphacALYNw9pdRgak/edit#gid=1866992021)  
+・ER図  
+      (https://github.com/tokyo3751/Trip-Go-out/blob/main/PF%20ER%E5%9B%B3.png)
 
 ## 開発環境
 - OS：Linux(CentOS)
