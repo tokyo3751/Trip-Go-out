@@ -20,7 +20,8 @@
 休みの日や空き時間にどこに行こうか迷ったとき。
 
 ## 設計書
-テーブル定義書（https://docs.google.com/spreadsheets/d/1fIahWIixEj8v6mLCFVVIwwN--7KlJaEFlKkxfZiq5ag/edit#gid=0)  
+テーブル定義書  
+（https://docs.google.com/spreadsheets/d/1fIahWIixEj8v6mLCFVVIwwN--7KlJaEFlKkxfZiq5ag/edit#gid=0)  
 アプリケーション詳細設計（https://docs.google.com/spreadsheets/d/13VebimwhinxLC6KH_11dM1v2yfDphacALYNw9pdRgak/edit#gid=1866992021)  
 
 ## 開発環境
