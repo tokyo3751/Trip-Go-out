@@ -39,7 +39,7 @@
             <td><%= @user.age %></td>
           </tr>
         </table>
-    </div>
+      </div>
     <div class="text-center mt-5">
       <%= link_to "いいねした投稿一覧", favorites_user_path, class: "btn btn-danger" %>
     </div>
@@ -51,7 +51,7 @@
     <div class="card-list-container py-5">
       <h2 class="text-center mt-5"><%= @user.nickname %>さんの投稿一覧</h2>
        <%= render "posts/index", posts: @post %>
-       <%= paginate @post %>
+       <ul class="pagination justify-content-center mt-5"><%= paginate @post %></ul>
     </div>
     <% if @user == current_user && @user.nickname != "guestuser" %>
       <div class="text-center mt-4">

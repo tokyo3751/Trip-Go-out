@@ -16,6 +16,7 @@ class Post < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+  
   #画像を表示させるメソッド
   def get_image(width,height)
     unless image.attached?

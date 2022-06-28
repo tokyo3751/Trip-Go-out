@@ -1,37 +1,39 @@
 <div class="container">
-  <h1 class="border-bottom mt-5 text-center">プロフィール編集</h2>
-   <%= form_with model: @user do |f| %>
-     <table class="table mt-5">
-       <tr>
-         <td>プロフィール画像</td>
-         <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></td>
-       </tr>
-       <tr>
-         <td>ニックネーム</td>
-         <td><%= f.text_field :nickname, autofocus: true, id:"inputName", placeholder:"ニックネーム"%></td>
-       </tr>
-       <tr>
-         <td>メールアドレス</td>
-         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-       </tr>
-       <tr>
-         <td><%= f.label :age, "年齢層" %></td>
-         <td>
-           <%= f.select :age,[["10代", "10代"], ["20代", "20代"], ["30代", "30代"],["40代", "40代"],["50代", "50代"],["60代", "60代"],["70代", "70代"],["80代以上", "80代以上"]], include_blank: "選択して下さい",class:"form-control" %>
-         </td>
-       </tr>
-       <tr>
-         <td><%= f.label :password, "パスワード" %></td>
-         <td>
-           <% if @minimum_password_length %>
-             <em>(<%= @minimum_password_length %> characters minimum)</em>
-           <% end %>
-           <%= f.password_field :password, autocomplete: "new-password" %>
-         </td>
-       </tr>
-     </table>
-      <div class="text-center">
-        <%= f.submit "プロフィールを更新する", class: "btn btn-primary" %>
-      </div>
-   <% end %>
+    <h1 class="text-center mt-5">
+      <span class="border-bottom">プロフィール編集</span>
+    </h1>
+     <%= form_with model: @user do |f| %>
+       <table class="table mt-5">
+         <tr>
+           <td>プロフィール画像</td>
+           <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></td>
+         </tr>
+         <tr>
+           <td>ニックネーム</td>
+           <td><%= f.text_field :nickname, autofocus: true, id:"inputName", placeholder:"ニックネーム"%></td>
+         </tr>
+         <tr>
+           <td>メールアドレス</td>
+           <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+         </tr>
+         <tr>
+           <td><%= f.label :age, "年齢層" %></td>
+           <td>
+             <%= f.select :age,[["10代", "10代"], ["20代", "20代"], ["30代", "30代"],["40代", "40代"],["50代", "50代"],["60代", "60代"],["70代", "70代"],["80代以上", "80代以上"]], include_blank: "選択して下さい",class:"form-control" %>
+           </td>
+         </tr>
+         <tr>
+           <td><%= f.label :password, "パスワード" %></td>
+           <td>
+             <% if @minimum_password_length %>
+               <em>(<%= @minimum_password_length %> characters minimum)</em>
+             <% end %>
+             <%= f.password_field :password, autocomplete: "new-password" %>
+           </td>
+         </tr>
+       </table>
+        <div class="text-center">
+          <%= f.submit "プロフィールを更新する", class: "btn btn-primary" %>
+        </div>
+     <% end %>
 </div>
